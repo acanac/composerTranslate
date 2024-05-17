@@ -28,6 +28,8 @@ class Translator
             throw new \Exception("Error decoding the translation response.");
         }
 
-        return $json[0][0][0];
+        $translatedText = $json[0][0][0];
+
+        return urldecode($translatedText);
     }
 }
