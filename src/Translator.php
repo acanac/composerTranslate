@@ -13,7 +13,7 @@ class Translator
             'sl' => $sourceLanguage,
             'tl' => $targetLanguage,
             'dt' => 't',
-            'q' => urlencode($text),
+            'q' => $text,
         ];
 
         $url = $this->apiUrl . '?' . http_build_query($queryParams);
