@@ -16,7 +16,7 @@ class Translator
             'q' => rawurlencode($text),
         ];
 
-        $url = $this->apiUrl . '?' . http_build_query($queryParams);
+        $url = $this->apiUrl . '?' . 'client=gtx&dt=t';
 
         $response = file_get_contents($url);
         if ($response === false) {
