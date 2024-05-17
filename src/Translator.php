@@ -13,10 +13,11 @@ class Translator
             'sl' => $sourceLanguage,
             'tl' => $targetLanguage,
             'dt' => 't',
-            'q' => rawurlencode($text),
+            'q' => $text,
         ];
 
-        $url = $this->apiUrl . '?' . http_build_query($queryParams);
+        // Construire l'URL sans encoder les espaces
+        $url = $this->apiUrl . '?' . http_build_query($queryParams, '', '&', PHP_QUERY_RFC3986);
 
         $response = file_get_contents($url);
         if ($response === false) {
