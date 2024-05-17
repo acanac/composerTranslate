@@ -6,14 +6,14 @@ class Translator
 {
     private $apiUrl = 'https://translate.googleapis.com/translate_a/single';
 
-    public function translate($text, $targetLanguage, $sourceLanguage = 'auto')
+    public function translate($text, $targetLanguage, $sourceLanguage)
     {
         $queryParams = [
             'client' => 'gtx',
             'sl' => $sourceLanguage,
             'tl' => $targetLanguage,
             'dt' => 't',
-            'q' => $text,
+            'q' => rawurlencode($text),
         ];
 
         $url = $this->apiUrl . '?' . http_build_query($queryParams);
@@ -30,6 +30,6 @@ class Translator
 
         $translatedText = $json[0][0][0];
 
-        return urldecode($translatedText);
+        return $translatedText;
     }
 }
