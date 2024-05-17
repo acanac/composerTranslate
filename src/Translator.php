@@ -13,11 +13,10 @@ class Translator
             'sl' => $sourceLanguage,
             'tl' => $targetLanguage,
             'dt' => 't',
-            'q' => $text,
+            'q' => rawurlencode($text),
         ];
 
-        // Construire l'URL sans encoder les espaces
-        $url = $this->apiUrl . '?' . http_build_query($queryParams, '', '&', PHP_QUERY_RFC3986);
+        $url = $this->apiUrl . '?' . http_build_query($queryParams);
 
         $response = file_get_contents($url);
         if ($response === false) {
