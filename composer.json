@@ -1,0 +1,18 @@
+{
+    "name": "acanac/composer-translate",
+    "description": "Un package PHP pour la traduction de texte",
+    "type": "library",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Acanac\\ComposerTranslate\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^11.1"
+    }
+}
